@@ -5,7 +5,7 @@ const { generateZip } = require('../scripts/zipmc');
 
 const router = express.Router();
 
-const MC_PATH = path.join(__dirname, '../minecraft_files/SAOFrance');
+const MC_PATH = path.join(__dirname, '../minecraft_files');
 
 router.get('/', async (req, res) => {
   const fileStructure = new TreeNode(MC_PATH);

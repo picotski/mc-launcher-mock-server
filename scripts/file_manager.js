@@ -12,9 +12,9 @@ exports.readJson = async (fileName) => {
   }
 };
 
-exports.getFile = async (pathFolder, modName) => {
+exports.getFile = async (pathFolder, fileName) => {
   try {
-    const data = await fsp.readFile(path.join(pathFolder, modName));
+    const data = await fsp.readFile(path.join(pathFolder, fileName));
     return data;
   } catch (err) {
     console.error(`Got an error trying to read the file: ${err.message}`);
