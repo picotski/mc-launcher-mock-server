@@ -1,10 +1,14 @@
 const express = require('express');
+const compression = require('compression');
+
 const mod = require('./routes/mod');
 const forge = require('./routes/forge');
 const files = require('./routes/file_structure');
 
 const app = express();
 const PORT = 3002;
+
+app.use(compression());
 
 app.listen(PORT, (err) => {
   if (!err) {

@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   const data = await readJson('forge_info.json');
   res.set('Content-Type', 'application/json');
   if (data) {
-    res.send(data);
+    res.status(200).send(data);
   } else {
     res.status(501).send({
       'error': 'Forge not initialized',
