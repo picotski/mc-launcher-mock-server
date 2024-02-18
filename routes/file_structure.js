@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const TreeNode = require('../scripts/treeNode');
-const { getFile } = require('../scripts/file_manager');
+// const { getFile } = require('../scripts/file_manager');
 
 const router = express.Router();
 
@@ -16,10 +16,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:zip_name', async (req, res) => {
   if (req.params.zip_name === 'minecraft.zip') {
-    const zipFile = await getFile(ZIP_PATH, 'minecraft.zip');
-    res.set('Content-Length', zipFile.length);
-    res.write(zipFile, 'binary');
-    res.end();
+    // const zipFile = await getFile(ZIP_PATH, 'minecraft.zip');
+    res.download(path.join(ZIP_PATH, 'minecraft.zip'));
+    // res.set('Content-Length', zipFile.length);
+    // res.write(zipFile, 'binary');
+    // res.end();
   } else {
     res.status(400).json({error: 'zip does not exists'});
   }
